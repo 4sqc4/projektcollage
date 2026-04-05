@@ -1,2 +1,2 @@
 # projektcollage
-qweqweqwe
+мой проект  для колледжа 
