@@ -7,7 +7,6 @@ def main():
     bank = Bank()
     print("=== Консольный Банк v1.0 ===")
 
-    # --- ЧАСТЬ 1: РЕГИСТРАЦИЯ ПОЛЬЗОВАТЕЛЕЙ ---
     entry_choice = input("Создать нового пользователя? (да/нет): ").strip().lower()
     
     if entry_choice == "да":
@@ -28,7 +27,6 @@ def main():
             if repeat != 'да':
                 break
 
-    # --- ЧАСТЬ 2: КОНТЕКСТНОЕ МЕНЮ (АНАЛОГ ТВОЕГО C# КОДА) ---
     while True:
         print("\nВыберите действие:")
         print("1. Список всех клиентов")
@@ -53,7 +51,7 @@ def main():
             target_id = input("Введите ID клиента для открытия счета: ")
             client = bank.clients.get(target_id)
             if client:
-                # Создаем базовый аккаунт [cite: 119]
+          
                 new_acc = BankAccount(client.full_name) 
                 client.add_account(new_acc)
                 print(f"[Успех] Открыт счет {new_acc.account_id} для {client.full_name}")
@@ -63,20 +61,20 @@ def main():
         elif choice == "3":
             auth_id = input("Введите ID: ")
             password = input("Введите пароль: ")
-            # Метод с защитой от 3-х попыток 
+          
             bank.authenticate_client(auth_id, password) 
 
         elif choice == "4":
             try:
                 amount = float(input("Введите сумму операции: "))
-                # Проверка подозрительных сумм (>100k) 
+               
                 bank.check_transaction(amount) 
             except ValueError:
                 print("Ошибка: введите число.")
 
         elif choice == "5":
             msg = input("Введите текст сообщения: ")
-            # Проверка времени (запрет с 00:00 до 05:00) 
+      
             bank.send_notification(msg) 
 
         elif choice == "0":
