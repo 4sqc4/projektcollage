@@ -2,13 +2,12 @@ from datetime import datetime
 
 class Bank:
     def __init__(self):
-        # Используем словарь, где ключ - ID, значение - объект клиента
+
         self.clients = {} 
 
     def add_client(self, client):
         self.clients[client.id] = client
 
-    # ВОТ ЭТОТ МЕТОД ТЕБЕ НУЖНО ДОБАВИТЬ:
     def get_all_clients(self):
         return list(self.clients.values())
 
@@ -17,7 +16,7 @@ class Bank:
         if not client:
             print("Клиент не найден.")
             return
-        # ... тут твоя логика пароля и блокировки ...
+
         if password == "1234":
             print(f"Добро пожаловать, {client.full_name}!")
         else:
